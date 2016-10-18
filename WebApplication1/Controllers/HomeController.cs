@@ -20,6 +20,14 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        public ActionResult Welcome()
+        {
+            ViewBag.Message = "欢迎光临！";
+            ViewBag.flag = 100;
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
