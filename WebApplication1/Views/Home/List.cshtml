@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    var newList = ViewBag.data as string[];
+}
+
+<h2>List</h2>
+
+<ol>
+    @foreach (var item in newList)
+    {
+        <li>@item</li>
+    }
+</ol>
+
