@@ -48,6 +48,25 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 添加新闻页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Add()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 保存新闻按钮
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Save(string title, string content)
+        {
+            ViewBag.Title1 = title;
+            ViewBag.Content = content;
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
