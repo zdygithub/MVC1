@@ -29,5 +29,24 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+
+        public ActionResult AddArticle()
+        {
+            return View();
+        }
+
+        public ActionResult ArticleSave(string subject, string body)
+        {
+            var article = new BlogArtice();
+            article.Subject = subject;
+            article.Body = body;
+            article.DateCreated = DateTime.Now;
+
+            var db = new BlogDatabase();
+            db.BlogArticles.Add(article);
+            db.SaveChanges();
+
+            return Redirect("Index");
+        }
     }
 }

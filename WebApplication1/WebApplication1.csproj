@@ -244,6 +244,7 @@
     <Content Include="Views\Home\Save.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Show.cshtml" />
+    <Content Include="Views\Blog\AddArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
