@@ -94,5 +94,16 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            var db = new BlogDatabase();
+            var article = db.BlogArticles.First(o => o.Id == id);
+
+            db.BlogArticles.Remove(article);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
