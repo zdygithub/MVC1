@@ -19,5 +19,15 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+
+        public ActionResult Show(int id)
+        {
+            var db = new BlogDatabase();
+            var article = db.BlogArticles.First(o => o.Id == id);
+
+            ViewData.Model = article;
+
+            return View();
+        }
     }
 }
