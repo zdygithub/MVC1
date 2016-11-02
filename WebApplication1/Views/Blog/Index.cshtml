@@ -7,14 +7,27 @@
 <h2>博客</h2>
 
 
-<ol>
-    @foreach(var item in articles)
-    {
-        <li>
-            @Html.ActionLink("[编辑]", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("[删除]", "Delete", new { id = item.Id }) |
-            <a href="@Url.Action("Show",new { id=item.Id})">@item.Subject</a>
-        </li>
-    }
-</ol>
+<div class="col-md-4">
+    <form>
+        <fieldset>
+            <input type="text" name="q" value="@ViewBag.q" />
+            <input type="submit" value="搜索" class="btn btn-primary" />
+        </fieldset>
+    </form>
+</div>
+
+
+<div class="col-md-8">
+    <ol>
+        @foreach (var item in articles)
+        {
+            <li>
+                @Html.ActionLink("[编辑]", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("[删除]", "Delete", new { id = item.Id }) |
+                <a href="@Url.Action("Show",new { id=item.Id})">@item.Subject</a>
+            </li>
+        }
+    </ol>
+</div>
+
 
