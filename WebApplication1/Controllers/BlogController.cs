@@ -57,7 +57,7 @@ namespace WebApplication1.Controllers
         /// <returns></returns>
         public ActionResult ArticleSave(string subject, string body)
         {
-            var article = new BlogArtice();
+            var article = new BlogArticle();
             article.Subject = subject;
             article.Body = body;
             article.DateCreated = DateTime.Now;

@@ -18,12 +18,12 @@
         }
 
         public virtual DbSet<Blog> Blogs { get; set; }
-        public virtual DbSet<BlogArtice> BlogArticles { get; set; }
+        public virtual DbSet<BlogArticle> BlogArticles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             var blogTable = modelBuilder.Entity<Blog>();
-            var blogArtticleTable = modelBuilder.Entity<BlogArtice>();
+            var blogArtticleTable = modelBuilder.Entity<BlogArticle>();
 
             blogTable.HasKey(o => o.Id);
             blogArtticleTable.HasKey(o => o.Id);
@@ -44,7 +44,7 @@
     /// <summary>
     /// 播客文章
     /// </summary>
-    public class BlogArtice
+    public class BlogArticle
     {
         public int Id { get; set; }
         public int BlogId { get; set; }
