@@ -5,16 +5,23 @@
 
 <h2>编辑博文</h2>
 
-<form action="/Blog/EditSave" method="post">
+@using (Html.BeginForm("ArticleSave", "Blog"))
+{
     <input type="hidden" name="Id" value="@Model.Id"/>
     <table class="table table-bordered">
         <tr>
             <td>标题：</td>
-            <td><input type="text" name="Subject" value="@Model.Subject" /></td>
+            <td>
+                @Html.TextBoxFor(o => o.Subject)
+                @Html.ValidationMessageFor(o => o.Subject)
+            </td>
         </tr>
         <tr>
             <td>内容：</td>
-            <td><textarea name="Body" cols="60" rows="4">@Model.Body</textarea></td>
+            <td>
+                @Html.TextAreaFor(o => o.Body, new { style = "width:600px; max-width:1000px;" })
+                @Html.ValidationMessageFor(o => o.Body)
+            </td>
         </tr>
         <tr>
             <td></td>
@@ -24,6 +31,6 @@
             </td>
         </tr>
     </table>
-</form>
+}
 
 

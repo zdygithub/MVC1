@@ -1,6 +1,7 @@
 ﻿namespace WebApplication1
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
     using System.Linq;
 
@@ -48,7 +49,12 @@
     {
         public int Id { get; set; }
         public int BlogId { get; set; }
+
+        [Required]
+        [StringLength(maximumLength: 20, MinimumLength = 5)]
         public string Subject { get; set; }//标题
+
+        [Required]
         public string Body { get; set; }//文章内容
         public DateTime DateCreated { get; set; }//创建时间
     }

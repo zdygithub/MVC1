@@ -57,14 +57,18 @@ namespace WebApplication1.Controllers
         /// <returns></returns>
         public ActionResult ArticleSave(BlogArticle model)
         {
-            var article = new BlogArticle();
-            article.Subject = model.Subject;
-            article.Body = model.Body;
-            article.DateCreated = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                var article = new BlogArticle();
+                article.Subject = model.Subject;
+                article.Body = model.Body;
+                article.DateCreated = DateTime.Now;
 
-            var db = new BlogDatabase();
-            db.BlogArticles.Add(article);
-            db.SaveChanges();
+                var db = new BlogDatabase();
+                db.BlogArticles.Add(article);
+                db.SaveChanges();
+            }
+            
 
             //return Redirect("Index");
             return RedirectToAction("Index");
@@ -91,14 +95,16 @@ namespace WebApplication1.Controllers
         /// <returns></returns>
         public ActionResult EditSave(BlogArticle model)
         {
-            var db = new BlogDatabase();
-            var article = db.BlogArticles.First(o => o.Id == model.Id);
+            if(ModelState.IsValid)
+            {
+                var db = new BlogDatabase();
+                var article = db.BlogArticles.First(o => o.Id == model.Id);
 
-            article.Subject = model.Subject;
-            article.Body = model.Body;
+                article.Subject = model.Subject;
+                article.Body = model.Body;
 
-            db.SaveChanges();
-
+                db.SaveChanges();
+            }            
             return RedirectToAction("Index");
         }
 
