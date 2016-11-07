@@ -55,11 +55,11 @@ namespace WebApplication1.Controllers
         /// 保存要添加的博文
         /// </summary>
         /// <returns></returns>
-        public ActionResult ArticleSave(string subject, string body)
+        public ActionResult ArticleSave(BlogArticle model)
         {
             var article = new BlogArticle();
-            article.Subject = subject;
-            article.Body = body;
+            article.Subject = model.Subject;
+            article.Body = model.Body;
             article.DateCreated = DateTime.Now;
 
             var db = new BlogDatabase();
@@ -89,13 +89,13 @@ namespace WebApplication1.Controllers
         /// 保存编辑后的博文
         /// </summary>
         /// <returns></returns>
-        public ActionResult EditSave(int id, string subject, string body)
+        public ActionResult EditSave(BlogArticle model)
         {
             var db = new BlogDatabase();
-            var article = db.BlogArticles.First(o => o.Id == id);
+            var article = db.BlogArticles.First(o => o.Id == model.Id);
 
-            article.Subject = subject;
-            article.Body = body;
+            article.Subject = model.Subject;
+            article.Body = model.Body;
 
             db.SaveChanges();
 
