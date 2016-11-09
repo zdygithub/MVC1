@@ -48,7 +48,15 @@ namespace WebApplication1.Controllers
         /// <returns></returns>
         public ActionResult AddArticle()
         {
-            return View();
+            if(Request.Cookies["loginCookie"]!=null && Request.Cookies["loginCookie"].Value=="true")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "CookieDemo");
+            }
+            
         }
 
         /// <summary>

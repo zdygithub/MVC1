@@ -11,10 +11,10 @@ namespace WebApplication1.Controllers
         // GET: CookieDemo
         public ActionResult Index()
         {
-            int count1=1;
+            int count1 = 1;
 
             var cookie = Request.Cookies["count2"];
-            if(cookie==null)
+            if (cookie == null)
             {
                 Response.Cookies.Add(new HttpCookie("count2", "1"));
             }
@@ -29,5 +29,26 @@ namespace WebApplication1.Controllers
             ViewBag.count = count1;
             return View();
         }
+
+        
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult LoginValidate(string name, string password)
+        {
+                 
+            if(name == "qq" && password=="11")
+            {
+                var cookie = new HttpCookie("loginCookie", "true");
+                Response.Cookies.Add(cookie);
+                return RedirectToAction("AddArticle", "Blog");
+            }
+
+            return View();
+        }
+
     }
 }
